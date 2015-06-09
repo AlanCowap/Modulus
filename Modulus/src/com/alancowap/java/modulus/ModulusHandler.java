@@ -13,6 +13,8 @@ package com.alancowap.java.modulus;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JTextArea;
+
 public class ModulusHandler implements ActionListener {
 	
 	private ModulusGui gui;
@@ -30,10 +32,23 @@ public class ModulusHandler implements ActionListener {
 		String command = e.getActionCommand();
 		
 		if(command.equals("Check")){
-			checkNumFromGui();
+			this.checkNumFromGui();
+		}else if(command.equals("Generator")){
+			this.generateModuli();
+		}else{
+			gui.addError("Sorry, unable to comply :(");
 		}
+				
 	}
 	
+	private void generateModuli() {
+		// TODO add logic here to generate valid numbers
+		
+		gui.addGeneratedNumber("To be implemented...\n dan dan dan....\n");
+		
+	}
+
+
 	/**
 	 * Check if the number is Modulus 11
 	 */

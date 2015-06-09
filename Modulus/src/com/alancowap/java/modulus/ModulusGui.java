@@ -25,6 +25,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.JTextArea;
 import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
 
 public class ModulusGui extends JFrame {
 
@@ -32,8 +33,9 @@ public class ModulusGui extends JFrame {
 	private JTextField textField;
 	private JTextField num;
 	private JLabel notModulus;
-	JTextArea modulusNumbers;
-	JTextArea notModulusNumbers;
+	private JTextArea modulusNumbers;
+	private JTextArea notModulusNumbers;
+	private JTextArea txtGeneratedNumbers;
 	
 	private ModulusHandler handler = new ModulusHandler(this);
 	private JTextField denominator;
@@ -63,6 +65,7 @@ public class ModulusGui extends JFrame {
 	 * Create the frame.
 	 */
 	public ModulusGui() {
+		setResizable(false);
 		this.setupGui();
 	}
 
@@ -71,7 +74,7 @@ public class ModulusGui extends JFrame {
 	 * Sets up all the components of the GUI
 	 */
 	private void setupGui(){
-		this.setTitle("Alan Cowap - ModulusGui App");
+		this.setTitle("Alan Cowap - Modulus App");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -125,11 +128,25 @@ public class ModulusGui extends JFrame {
 		txtError.setColumns(10);
 		
 		separator = new JSeparator();
-		separator.setBounds(180, 0, 200, 50);
+		separator.setOrientation(SwingConstants.VERTICAL);
+		separator.setBounds(274, 11, 14, 240);
 		contentPane.add(separator);
+		
+		txtGeneratedNumbers = new JTextArea();
+		txtGeneratedNumbers.setBounds(298, 94, 100, 133);
+		contentPane.add(txtGeneratedNumbers);
+		
+		JLabel lblGeneratedNumbers = new JLabel("Generated Numbers");
+		lblGeneratedNumbers.setBounds(298, 76, 123, 14);
+		contentPane.add(lblGeneratedNumbers);
+		
+		JButton btnGenerate = new JButton("Generator");
+		btnGenerate.setBounds(298, 42, 100, 23);
+		contentPane.add(btnGenerate);
 
 		// Adds actionlistener(s) to the button(s). 
 		btnCheck.addActionListener(handler);
+		btnGenerate.addActionListener(handler);
 				
 	}
 	
@@ -159,6 +176,9 @@ public class ModulusGui extends JFrame {
 	public void addInfo(String info){
 		this.txtError.setForeground(Color.BLUE);
 		this.txtError.setText(info);
-
+	}
+	
+	public void addGeneratedNumber(String number){
+		this.txtGeneratedNumbers.append(number);
 	}
 }

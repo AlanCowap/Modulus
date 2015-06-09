@@ -20,16 +20,17 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
 
 public class ModulusGui extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField num;
-	private JTextField modulusNumbers;
-	private JTextField notModulusNumbers;
 	private JLabel notModulus;
-
+	JTextArea modulusNumbers;
+	JTextArea notModulusNumbers;
+	
 	private ModulusHandler handler = new ModulusHandler(this);
 	
 	
@@ -79,23 +80,21 @@ public class ModulusGui extends JFrame {
 		btnCheck.setBounds(162, 10, 89, 23);
 		contentPane.add(btnCheck);
 		
-		modulusNumbers = new JTextField();
-		modulusNumbers.setBounds(30, 68, 100, 133);
-		contentPane.add(modulusNumbers);
-		modulusNumbers.setColumns(13);
-		
 		JLabel lblModulus = new JLabel("Modulus 11");
 		lblModulus.setBounds(30, 52, 100, 14);
 		contentPane.add(lblModulus);
 		
-		notModulusNumbers = new JTextField();
-		notModulusNumbers.setColumns(13);
-		notModulusNumbers.setBounds(165, 68, 100, 133);
-		contentPane.add(notModulusNumbers);
-		
 		notModulus = new JLabel("Not Modulus 11");
 		notModulus.setBounds(162, 52, 100, 14);
 		contentPane.add(notModulus);
+		
+		modulusNumbers = new JTextArea();
+		modulusNumbers.setBounds(30, 68, 100, 133);
+		contentPane.add(modulusNumbers);
+		
+		notModulusNumbers = new JTextArea();
+		notModulusNumbers.setBounds(162, 68, 100, 133);
+		contentPane.add(notModulusNumbers);
 
 		// Adds actionlistener(s) to the button(s). 
 		btnCheck.addActionListener(handler);
@@ -108,5 +107,11 @@ public class ModulusGui extends JFrame {
 		return this.num.getText();
 	}
 	
-	
+	public void addNotMod(String str){
+		this.notModulusNumbers.setText(this.notModulusNumbers.getText() + str + "\n");
+	}
+
+	public void addMod(String str){
+		this.notModulusNumbers.setText(this.modulusNumbers.getText() + str + "\n");
+	}
 }

@@ -40,24 +40,47 @@ public class ModulusHandler implements ActionListener {
 	private void checkNumFromGui(){
 		//Read number from gui, string to char[] to int[] 
 		String num = gui.getNum();
-		System.out.println(num);
+//		System.out.println(num);
 		
 		//strip out hyphens, etc. from string
 		//TODO for now we assume legal chars only
 		num = num.trim();
 		
-		//convert to int[]
+		//convert to int[], 
 		int[] nums = new int[num.length()];
 		for(int i=0; i < num.length(); ++i){
-			
-			//check for non-numeric i.e. X = 10, reject all others
-			
+			int number = Character.getNumericValue(num.charAt(i));
+			if(number < 0 || number > 9){ //any non-numeric character
+				nums[i] = 10;
+			}else{
+				nums[i] = number;
+			}			
 		}
 		
+//		for(int i : nums){
+//			System.out.print(i);
+//		}
 		
-		//Calculate sum & check if % 11 == 0
-		
-		//update gui		
+		boolean isMod11 = this.isModulus(nums, 11);
+	
+		//update gui
+		if(isMod11){
+			gui.addMod(num);
+		}else{
+			gui.addNotMod(num);
+		}
+	}
+	
+	/**
+	 * 
+	 * 
+	 * @param nums array containing number to check (numerator)
+	 * @param divisior divisor to check (denominator)
+	 * @return true if num % divisor is 0 (zero)
+	 */
+	private boolean isModulus(int[] num, int divisor){
+		//TODO code logic
+		return false;
 	}
 
 }

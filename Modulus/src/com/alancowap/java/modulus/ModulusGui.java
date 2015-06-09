@@ -24,6 +24,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JTextArea;
+import javax.swing.JSeparator;
 
 public class ModulusGui extends JFrame {
 
@@ -39,6 +40,7 @@ public class ModulusGui extends JFrame {
 	private JLabel lblDivisor;
 	private JLabel lblNumerator;
 	private JTextField txtError;
+	private JSeparator separator;
 	
 	
 	/**
@@ -121,6 +123,10 @@ public class ModulusGui extends JFrame {
 		txtError.setBounds(30, 231, 232, 20);
 		contentPane.add(txtError);
 		txtError.setColumns(10);
+		
+		separator = new JSeparator();
+		separator.setBounds(180, 0, 200, 50);
+		contentPane.add(separator);
 
 		// Adds actionlistener(s) to the button(s). 
 		btnCheck.addActionListener(handler);
@@ -149,5 +155,10 @@ public class ModulusGui extends JFrame {
 		this.txtError.setForeground(Color.RED);
 		this.txtError.setText(error);
 	}
+	
+	public void addInfo(String info){
+		this.txtError.setForeground(Color.BLUE);
+		this.txtError.setText(info);
 
+	}
 }

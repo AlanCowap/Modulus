@@ -75,7 +75,7 @@ public class ModulusHandler implements ActionListener {
 				gui.addNotMod(numerator, denom);
 			}
 		} catch (NumberFormatException e) {
-			gui.addError("Not a valid Numerator");
+			gui.addError("Not a valid Denominator");
 
 		}
 
@@ -94,7 +94,9 @@ public class ModulusHandler implements ActionListener {
 			sum += num[i] * len--;//i;			
 		}
 		System.out.println(sum);
-		return ((sum % divisor) == 0);
+		int remainder = sum % divisor;
+		gui.addInfo(Integer.toString(sum) +" % "+ Integer.toString(divisor) +" leaves " + remainder);
+		return (remainder == 0);
 	}
 
 }

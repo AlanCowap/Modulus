@@ -38,37 +38,47 @@ public class ModulusHandler implements ActionListener {
 	 * Check if the number is Modulus 11
 	 */
 	private void checkNumFromGui(){
+		//Clear any errors
+		gui.addError("");
+		
 		//Read number from gui, string to char[] to int[] 
-		String num = gui.getNum();
+		String numerator = gui.getNumerator();
 //		System.out.println(num);
 		
 		//strip out hyphens, etc. from string
 		//TODO for now we assume legal chars only
-		num = num.trim();
+		numerator = numerator.trim();
 		
 		//convert to int[], 
-		int[] nums = new int[num.length()];
-		for(int i=0; i < num.length(); ++i){
-			int number = Character.getNumericValue(num.charAt(i));
+		int[] numeratorArray = new int[numerator.length()];
+		for(int i=0; i < numerator.length(); ++i){
+			int number = Character.getNumericValue(numerator.charAt(i));
 			if(number < 0 || number > 9){ //any non-numeric character
-				nums[i] = 10;
+				numeratorArray[i] = 10;
 			}else{
-				nums[i] = number;
+				numeratorArray[i] = number;
 			}			
 		}
 		
-//		for(int i : nums){
-//			System.out.print(i);
-//		}
-		
-		boolean isMod11 = this.isModulus(nums, 11);
-	
-		//update gui
-		if(isMod11){
-			gui.addMod(num);
-		}else{
-			gui.addNotMod(num);
+		//Get denominator, check modulus and update GUI
+		String denom = gui.getDenominator().trim();
+		int denominator = 0;
+		try {
+			denominator = Integer.parseInt(denom);
+
+			boolean isMod11 = this.isModulus(numeratorArray, denominator);
+
+			//update gui
+			if(isMod11){
+				gui.addMod(numerator, denom);
+			}else{
+				gui.addNotMod(numerator, denom);
+			}
+		} catch (NumberFormatException e) {
+			gui.addError("Not a valid Numerator");
+
 		}
+
 	}
 	
 	/**
@@ -79,8 +89,12 @@ public class ModulusHandler implements ActionListener {
 	 * @return true if num % divisor is 0 (zero)
 	 */
 	private boolean isModulus(int[] num, int divisor){
-		//TODO code logic
-		return false;
+		int sum=0, len = num.length;
+		for(int i=0; i < num.length; ++ i){
+			sum += num[i] * len--;//i;			
+		}
+		System.out.println(sum);
+		return ((sum % divisor) == 0);
 	}
 
 }

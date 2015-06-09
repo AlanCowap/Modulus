@@ -84,7 +84,7 @@ public class ModulusGui extends JFrame {
 		contentPane.add(modulusNumbers);
 		modulusNumbers.setColumns(13);
 		
-		JLabel lblModulus = new JLabel("ModulusGui 11");
+		JLabel lblModulus = new JLabel("Modulus 11");
 		lblModulus.setBounds(30, 52, 100, 14);
 		contentPane.add(lblModulus);
 		
@@ -93,7 +93,7 @@ public class ModulusGui extends JFrame {
 		notModulusNumbers.setBounds(165, 68, 100, 133);
 		contentPane.add(notModulusNumbers);
 		
-		notModulus = new JLabel("Not ModulusGui 11");
+		notModulus = new JLabel("Not Modulus 11");
 		notModulus.setBounds(162, 52, 100, 14);
 		contentPane.add(notModulus);
 

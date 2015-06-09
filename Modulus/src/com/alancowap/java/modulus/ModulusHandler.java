@@ -39,6 +39,7 @@ public class ModulusHandler implements ActionListener {
 	 */
 	private void checkNum(){
 		//TODO add functionality
+		
 	}
 
 }

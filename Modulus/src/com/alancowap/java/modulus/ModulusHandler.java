@@ -30,16 +30,34 @@ public class ModulusHandler implements ActionListener {
 		String command = e.getActionCommand();
 		
 		if(command.equals("Check")){
-			checkNum();
+			checkNumFromGui();
 		}
 	}
 	
 	/**
-	 * Check if a number is Modulus 11
+	 * Check if the number is Modulus 11
 	 */
-	private void checkNum(){
-		//TODO add functionality
+	private void checkNumFromGui(){
+		//Read number from gui, string to char[] to int[] 
+		String num = gui.getNum();
+		System.out.println(num);
 		
+		//strip out hyphens, etc. from string
+		//TODO for now we assume legal chars only
+		num = num.trim();
+		
+		//convert to int[]
+		int[] nums = new int[num.length()];
+		for(int i=0; i < num.length(); ++i){
+			
+			//check for non-numeric i.e. X = 10, reject all others
+			
+		}
+		
+		
+		//Calculate sum & check if % 11 == 0
+		
+		//update gui		
 	}
 
 }

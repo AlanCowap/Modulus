@@ -1,6 +1,6 @@
 /**
  * Class describing the GUI for the ModulusGui app 
- * 
+ * Numbers are 10 characters long, last character (LSB) may be X (equivalent to 10) 
  *
  * @author Alan Cowap 
  * @version 1.0  
@@ -99,8 +99,13 @@ public class ModulusGui extends JFrame {
 
 		// Adds actionlistener(s) to the button(s). 
 		btnCheck.addActionListener(handler);
-		
-		
+				
+	}
+	
+	//Add some accessors and mutators
+	
+	public String getNum(){
+		return this.num.getText();
 	}
 	
 	

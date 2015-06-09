@@ -1,3 +1,12 @@
+/**
+ * Class describing the GUI for the ModulusGui app 
+ * 
+ *
+ * @author Alan Cowap 
+ * @version 1.0  
+ * @dependencies none
+ *  
+ */
 package com.alancowap.java.modulus;
 
 import java.awt.BorderLayout;
@@ -12,7 +21,7 @@ import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Modulus extends JFrame {
+public class ModulusGui extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -28,7 +37,7 @@ public class Modulus extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Modulus frame = new Modulus();
+					ModulusGui frame = new ModulusGui();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,8 +49,8 @@ public class Modulus extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Modulus() {
-		this.setTitle("Alan Cowap - Modulus App");
+	public ModulusGui() {
+		this.setTitle("Alan Cowap - ModulusGui App");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -69,7 +78,7 @@ public class Modulus extends JFrame {
 		contentPane.add(modulusNumbers);
 		modulusNumbers.setColumns(13);
 		
-		JLabel lblModulus = new JLabel("Modulus 11");
+		JLabel lblModulus = new JLabel("ModulusGui 11");
 		lblModulus.setBounds(30, 52, 100, 14);
 		contentPane.add(lblModulus);
 		
@@ -78,7 +87,7 @@ public class Modulus extends JFrame {
 		notModulusNumbers.setBounds(165, 68, 100, 133);
 		contentPane.add(notModulusNumbers);
 		
-		notModulus = new JLabel("Not Modulus 11");
+		notModulus = new JLabel("Not ModulusGui 11");
 		notModulus.setBounds(162, 52, 100, 14);
 		contentPane.add(notModulus);
 		

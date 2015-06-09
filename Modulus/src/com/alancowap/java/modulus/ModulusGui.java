@@ -30,6 +30,9 @@ public class ModulusGui extends JFrame {
 	private JTextField notModulusNumbers;
 	private JLabel notModulus;
 
+	private ModulusHandler handler = new ModulusHandler(this);
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -50,6 +53,14 @@ public class ModulusGui extends JFrame {
 	 * Create the frame.
 	 */
 	public ModulusGui() {
+		this.setupGui();
+	}
+
+	
+	/**
+	 * Sets up all the components of the GUI
+	 */
+	private void setupGui(){
 		this.setTitle("Alan Cowap - ModulusGui App");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -65,11 +76,6 @@ public class ModulusGui extends JFrame {
 		num.setColumns(13);
 		
 		JButton btnCheck = new JButton("Check");
-		btnCheck.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
 		btnCheck.setBounds(162, 10, 89, 23);
 		contentPane.add(btnCheck);
 		
@@ -90,6 +96,10 @@ public class ModulusGui extends JFrame {
 		notModulus = new JLabel("Not ModulusGui 11");
 		notModulus.setBounds(162, 52, 100, 14);
 		contentPane.add(notModulus);
+
+		// Adds actionlistener(s) to the button(s). 
+		btnCheck.addActionListener(handler);
+		
 		
 	}
 	
